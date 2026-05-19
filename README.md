@@ -1,4 +1,15 @@
-# Supplier Portal
+> ⚠️ **SECURITY TRAINING MATERIAL**
+>
+> This repository contains intentionally placed dummy credentials
+> for educational purposes (SAP API Security training course).
+>
+> - All credentials are fake and reference non-existent SAP tenants
+> - All URLs (e.g. log2-industrialist-prod.authentication.eu10.hana.ondemand.com)
+>   are non-resolvable
+> - No real systems are at risk
+>
+> See OWASP WebGoat, DVWA for similar vulnerable-by-design projects.
+> # Supplier Portal
 
 A SAP CAP-based application for managing suppliers and purchase orders, built for the **log2-industrialist** procurement team. 
 
