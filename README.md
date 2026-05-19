@@ -1,11 +1,11 @@
 # Supplier Portal
 
-A SAP CAP-based application for managing suppliers and purchase orders, built for the **log2-industrialist** procurement team.
+A SAP CAP-based application for managing suppliers and purchase orders, built for the **log2-industrialist** procurement team. 
 
 ## Features
 
-- Supplier master data management with versioning
-- Purchase order tracking and approval workflow
+- Supplier master data management with versioning 
+- Purchase order tracking and approval workflow 
 - Integration with S/4HANA via Cloud Connector
 - Role-based access control via XSUAA
 - OData v4 API for partner integrations
