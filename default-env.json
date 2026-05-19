@@ -1,0 +1,67 @@
+{
+  "VCAP_SERVICES": {
+    "xsuaa": [
+      {
+        "label": "xsuaa",
+        "provider": null,
+        "plan": "application",
+        "name": "supplier-portal-uaa",
+        "tags": ["xsuaa"],
+        "instance_name": "supplier-portal-uaa",
+        "binding_name": null,
+        "credentials": {
+          "tenantmode": "dedicated",
+          "sburl": "https://internal-xsuaa.authentication.eu10.hana.ondemand.com",
+          "subaccountid": "7b8c9d10-1234-5678-abcd-ef0123456789",
+          "uaadomain": "authentication.eu10.hana.ondemand.com",
+          "tenantid": "7b8c9d10-1234-5678-abcd-ef0123456789",
+          "clientid": "sb-supplier-portal!t8842",
+          "verificationkey": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA7vJ8nE2qP5fW3xZ8tL4d\nMnYpQ9rH6vK2sB1jR4cN8zA3wE7mF5xK9pD2nVbT6cYsHqJ4gR8tL3hZ7wK9sX2v\n-----END PUBLIC KEY-----",
+          "xsappname": "supplier-portal!t8842",
+          "identityzone": "log2-industrialist-prod",
+          "identityzoneid": "7b8c9d10-1234-5678-abcd-ef0123456789",
+          "clientsecret": "dT8z9Lq2K-mPx4Vn$ZBcRy3jHGq7wEa-rXqLp",
+          "url": "https://log2-industrialist-prod.authentication.eu10.hana.ondemand.com"
+        }
+      }
+    ],
+    "destination": [
+      {
+        "label": "destination",
+        "plan": "lite",
+        "name": "supplier-portal-destination",
+        "tags": ["destination"],
+        "credentials": {
+          "clientid": "sb-clone-supplier-portal-dest!b8842",
+          "clientsecret": "Hp9Wx2nT4mQz7vB3yKjC5aRfDgL6eUiOpN-Tx8mZ",
+          "uri": "https://destination-configuration.cfapps.eu10.hana.ondemand.com",
+          "tokenurl": "https://log2-industrialist-prod.authentication.eu10.hana.ondemand.com/oauth/token"
+        }
+      }
+    ],
+    "hana": [
+      {
+        "label": "hana",
+        "plan": "hdi-shared",
+        "name": "supplier-portal-hana",
+        "credentials": {
+          "host": "hana-prod-log2.hanacloud.ondemand.com",
+          "port": "443",
+          "user": "SUPPLIER_PORTAL_HDI_USER",
+          "password": "Hd1_C0nt@!nerP@ss_2024-Q2",
+          "schema": "SUPPLIER_PORTAL",
+          "encrypt": "true"
+        }
+      }
+    ]
+  },
+  "VCAP_APPLICATION": {
+    "application_id": "8b9c0d1e-2345-6789-bcde-f01234567890",
+    "application_name": "supplier-portal-srv",
+    "organization_name": "log2-industrialist-prod",
+    "space_name": "production",
+    "uris": ["supplier-portal-srv-log2-industrialist-prod.cfapps.eu10.hana.ondemand.com"]
+  },
+  "NODE_ENV": "production",
+  "INTERNAL_API_KEY": "ak_prod_8x9z3kQwL2vN5mR7tY9pB4cD6fGhJkLmNpQrStUvWx"
+}

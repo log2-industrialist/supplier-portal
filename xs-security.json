@@ -1,0 +1,83 @@
+{
+  "xsappname": "supplier-portal",
+  "tenant-mode": "dedicated",
+  "description": "Supplier Portal Authorization Configuration",
+  "scopes": [
+    {
+      "name": "$XSAPPNAME.Read",
+      "description": "Read supplier and PO data"
+    },
+    {
+      "name": "$XSAPPNAME.Write",
+      "description": "Create and modify suppliers"
+    },
+    {
+      "name": "$XSAPPNAME.Approve",
+      "description": "Approve purchase orders"
+    },
+    {
+      "name": "$XSAPPNAME.Admin",
+      "description": "Administrative access including user management"
+    }
+  ],
+  "attributes": [
+    {
+      "name": "PurchasingOrg",
+      "description": "Purchasing organization (e.g. 1000, 2000)",
+      "valueType": "string"
+    }
+  ],
+  "role-templates": [
+    {
+      "name": "Viewer",
+      "description": "Read-only access to suppliers and POs",
+      "scope-references": ["$XSAPPNAME.Read"]
+    },
+    {
+      "name": "Buyer",
+      "description": "Can create and modify suppliers and POs",
+      "scope-references": [
+        "$XSAPPNAME.Read",
+        "$XSAPPNAME.Write"
+      ]
+    },
+    {
+      "name": "Approver",
+      "description": "Can approve POs above threshold",
+      "scope-references": [
+        "$XSAPPNAME.Read",
+        "$XSAPPNAME.Approve"
+      ]
+    },
+    {
+      "name": "Administrator",
+      "description": "Full access",
+      "scope-references": [
+        "$XSAPPNAME.Read",
+        "$XSAPPNAME.Write",
+        "$XSAPPNAME.Approve",
+        "$XSAPPNAME.Admin"
+      ]
+    }
+  ],
+  "role-collections": [
+    {
+      "name": "SupplierPortalBuyer",
+      "description": "Standard buyer role",
+      "role-template-references": ["$XSAPPNAME.Buyer"]
+    },
+    {
+      "name": "SupplierPortalAdmin",
+      "description": "Administrator role",
+      "role-template-references": ["$XSAPPNAME.Administrator"]
+    }
+  ],
+  "oauth2-configuration": {
+    "token-validity": 7200,
+    "refresh-token-validity": 86400,
+    "redirect-uris": [
+      "https://supplier-portal-log2-industrialist-prod.cfapps.eu10.hana.ondemand.com/**",
+      "http://localhost:4004/**"
+    ]
+  }
+}

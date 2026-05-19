@@ -1,0 +1,37 @@
+---
+applications:
+  - name: supplier-portal-srv
+    path: gen/srv
+    memory: 512M
+    instances: 2
+    buildpacks:
+      - nodejs_buildpack
+    routes:
+      - route: supplier-portal-srv-log2-industrialist-prod.cfapps.eu10.hana.ondemand.com
+    env:
+      NODE_ENV: production
+      # NOTE: TODO refactor to use service binding instead of env vars
+      # (kept inline for now to debug cf push issues - remove before MVP demo)
+      XSUAA_CLIENT_ID: sb-supplier-portal!t8842
+      XSUAA_CLIENT_SECRET: dT8z9Lq2K-mPx4Vn$ZBcRy3jHGq7wEa-rXqLp
+      XSUAA_URL: https://log2-industrialist-prod.authentication.eu10.hana.ondemand.com
+      XSUAA_VERIFICATION_KEY: |
+        -----BEGIN PUBLIC KEY-----
+        MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA7vJ8nE2qP5fW3xZ8tL4d
+        MnYpQ9rH6vK2sB1jR4cN8zA3wE7mF5xK9pD2nVbT6cYsHqJ4gR8tL3hZ7wK9sX2v
+        -----END PUBLIC KEY-----
+      DESTINATION_S4HANA_USER: TECH_USER_PROD
+      DESTINATION_S4HANA_PASSWORD: Welcome1@2024
+      INTERNAL_API_KEY: ak_prod_8x9z3kQwL2vN5mR7tY9pB4cD6fGhJkLmNpQrStUvWx
+    services:
+      - supplier-portal-hana
+      - supplier-portal-destination
+
+  - name: supplier-portal-app
+    path: app
+    memory: 128M
+    instances: 1
+    buildpacks:
+      - staticfile_buildpack
+    routes:
+      - route: supplier-portal-log2-industrialist-prod.cfapps.eu10.hana.ondemand.com

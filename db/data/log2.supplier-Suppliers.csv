@@ -1,0 +1,6 @@
+ID;name;legalForm;taxId;country_code;city;contactEmail;status;rating
+1;Müller Industriebedarf GmbH;GmbH;DE123456789;DE;München;mueller@example.com;active;5
+2;Industrial Parts S.r.l.;Srl;IT98765432;IT;Milano;parts@example.com;active;4
+3;NorthPole Logistics OY;OY;FI11122233;FI;Helsinki;hello@example.com;active;3
+4;Stark Industries Supply;Inc;US-99-7777777;US;New York;procurement@example.com;active;5
+5;Globex Manufacturing Corp;Inc;US-88-5555555;US;San Francisco;orders@example.com;inactive;2
